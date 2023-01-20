@@ -1,0 +1,65 @@
+:root {
+	--editor-scrollbar-color:grey;
+	--editor-border-color: green;
+	--header-icon-color: white;
+}
+.markdown-editor {
+	border: 2px solid var(--editor-border-color);
+	border-radius: 10px;
+	width: 100%;
+	position: relative;
+}
+.markdown-editor-header-section {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: green;
+
+}
+.markdown-editor-header {
+	padding: 5px 0;
+	width: 90%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	p {
+		font-size: 1.5em;
+		text-align: center;
+		font-weight: bolder;
+		font-family: "Lato", sans-serif;
+	}
+	i {
+		color: var(--header-icon-color);
+		font-size: 1.2em;
+		font-weight: bolder;
+		padding: 10px;
+		border-radius: 50%;
+		cursor: pointer;
+		position: relative;
+		&:hover {
+			background-color: rgba(0,0,0,0.7);
+			transition: background-color, 100ms ease-in-out;
+		}
+	}
+}
+#editor {
+	overflow-y: scroll;
+	resize: none;
+	outline:none;
+	width: 100%;
+	border: none;
+	border-top: 2px solid var(--editor-border-color);
+	&::-webkit-scrollbar {
+		width: 8px;
+		height: 100%;
+		background-color: var(--editor-scrollbar-color);
+	}
+	&::-webkit-scrollbar-button {
+		display: none;
+	}
+	&::-webkit-scrollbar-thumb {
+		background-color: red;
+	}
+
+}

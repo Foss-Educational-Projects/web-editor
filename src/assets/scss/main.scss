@@ -1,0 +1,35 @@
+@use './components/markdown-editor';
+@use './components/markdown-previewer';
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+body, html {
+	width: 100%;
+	height: 100%;
+}
+#root {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+.App {
+	width: inherit;
+	height: inherit;
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: repeat(2, 1fr);
+	padding: 10px;
+}
+
+@media (max-width: 1000px){
+	.App {
+		grid-template-columns: 1fr;
+		grid-template-rows: repeat(2, 1fr);
+	}
+}
