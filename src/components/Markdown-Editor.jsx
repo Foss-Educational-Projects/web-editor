@@ -5,12 +5,14 @@ const MarkdownEditor = () => {
 		<div className="markdown-editor">
 			<div className="markdown-editor-header-section">
 				<header className="markdown-editor-header">
-				<i className="fa-solid fa-pen-to-square"></i>
-				<p>Markdown Editor</p>
-				<i className="fa-solid fa-up-right-and-down-left-from-center"></i>
+					<i className="fa-solid fa-pen-to-square" id="markdown-header-icon"></i>
+					<p>Markdown Editor</p>
+					<button className="scale-window-icon">
+						<i className="fa-solid fa-up-right-and-down-left-from-center"></i>
+					</button>
 				</header>
 			</div>
-			<textarea id="editor"></textarea>
+			<textarea rows={15} id="editor"></textarea>
 		</div>
 	)
 }

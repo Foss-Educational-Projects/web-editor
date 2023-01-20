@@ -25,6 +25,11 @@ body, html {
 	grid-gap: 10px;
 	grid-template-columns: repeat(2, 1fr);
 	padding: 10px;
+	background-image: url("https://images7.alphacoders.com/617/617537.jpg");
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 
 @media (max-width: 1000px){
