@@ -8,9 +8,9 @@ const MarkdownEditor = () => {
 	}
 	return (
 		<div className="markdown-editor">
-			<div className="markdown-editor-header-section">
-				<header className="markdown-editor-header">
-					<i className="fa-solid fa-pen-to-square" id="markdown-header-icon"></i>
+			<div className="header-section">
+				<header className="header">
+					<i className="fa-brands fa-markdown header-icon" id="markdown-header-icon"></i>
 					<p>Markdown Editor</p>
 					<div className="button-container">
 						<button className="scale-window" id="scale" onClick={scaleWindow}>
@@ -22,7 +22,7 @@ const MarkdownEditor = () => {
 					</div>
 				</header>
 			</div>
-			<textarea id="editor" className="editor"></textarea>
+			<textarea id="editor" className="display-section editor"></textarea>
 		</div>
 	)
 }

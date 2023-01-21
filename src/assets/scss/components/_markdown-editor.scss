@@ -1,12 +1,13 @@
 :root {
-	--editor-scrollbar-color: rgba(0,0,0,0.8);
-	--editor-bg-color:rgba(255,255,255,0.5);
+	--editor-scrollbar-color: rgba(0, 0, 0, 0.8);
+	--editor-bg-color: rgba(255, 255, 255, 0.5);
 	--editor-scrollbar-thumb-color: orangered;
 	--editor-border-color: white;
 	--editor-header-color: rgba(140, 0, 248, 0.5);
 	--header-icon-color: white;
-	--text-color:whitesmoke;
+	--text-color: whitesmoke;
 }
+
 .markdown-editor {
 	grid-area: editor;
 	border: 2px solid var(--editor-bg-color);
@@ -20,82 +21,4 @@
 	background-color: var(--editor-bg-color);
 	color: var(--text-color);
 	transition: height, 100ms ease;
-}
-.markdown-editor-header-section {
-	width: 100%;
-	display: flex;
-	border-radius: 10px;
-	justify-content: center;
-	align-items: center;
-	background-color: var(--editor-header-color);
-	backdrop-filter:blur(5px);
-}
-.markdown-editor-header {
-	padding: 10px 0;
-	width: 95%;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	p {
-		font-size: 1.5em;
-		text-align: center;
-		font-weight: bolder;
-		font-family: "Lato", sans-serif;
-	}
-	#markdown-header-icon {
-		font-size: 1.5em;
-		color: white;
-	}
-	button {
-		background:none;
-		outline: none;
-		border:none;
-		i {
-			color: var(--header-icon-color);
-			font-size: 1.2em;
-			font-weight: bolder;
-			padding: 10px;
-			border-radius: 50%;
-			cursor: pointer;
-			position: relative;
-			transform:scale(1.0);
-			transition: background-color,transform, 100ms ease-in-out;
-			&:hover {
-				background-color: rgba(0, 0, 0, 0.7);
-				transform:scale(1.2);
-				transition: background-color,transform, 100ms ease-in-out;
-			}
-		}
-	}
-}
-.editor {
-	color: var(--text-color);
-	resize: none;
-	outline: none;
-	width: 100%;
-	height: 100%;
-	border: none;
-	margin-top: 5px;
-	background-color: rgba(0,0,0,0.5);
-	backdrop-filter:blur(5px);
-	border-radius: 10px;
-	font-size: 1.1em;
-	font-family: "Open Sans", monospace;
-	padding: 5px;
-	z-index: 10;
-	transition: height, 200ms ease;
-	&::-webkit-scrollbar {
-		width: 8px;
-		border-radius: 0 10px 10px 0;
-		height: 100%;
-		cursor: pointer;
-		background-color: var(--editor-scrollbar-color);
-	}
-	&::-webkit-scrollbar-button {
-		display: none;
-	}
-	&::-webkit-scrollbar-thumb {
-		background-color: var(--editor-scrollbar-thumb-color);
-		border-radius: 0 10px 10px 0;
-	}
 }
