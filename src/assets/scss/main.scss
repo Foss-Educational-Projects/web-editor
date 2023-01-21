@@ -1,6 +1,16 @@
 @use './components/markdown-editor';
 @use './components/markdown-previewer';
 @use './components/page-previewer';
+:root {
+	--editor-scrollbar-color: rgba(0, 0, 0, 0.8);
+	--editor-bg-color: rgba(255, 255, 255, 0.5);
+	--editor-scrollbar-thumb-color: orangered;
+	--editor-border-color: white;
+	--editor-header-color: rgba(140, 0, 248, 0.8);
+	--header-icon-color: white;
+	--text-color: whitesmoke;
+}
+
 * {
 	padding: 0;
 	margin: 0;
@@ -61,7 +71,6 @@ body {
 	justify-content: center;
 	align-items: center;
 	background-color: var(--editor-header-color);
-	backdrop-filter: blur(5px);
 	.header {
 		padding: 10px 0;
 		width: 95%;
@@ -111,11 +120,11 @@ body {
 	height: 100%;
 	border: none;
 	margin-top: 5px;
-	background-color: rgba(0, 0, 0, 0.5);
-	backdrop-filter: blur(5px);
+	background-color: rgba(0, 0, 0, 0.9);
 	border-radius: 10px;
-	font-size: 1.1em;
-	font-family: "Open Sans", monospace;
+	font-size: 1em;
+	font-weight: bold;
+	font-family: "Roboto", monospace;
 	padding: 5px;
 	z-index: 10;
 	transition: height, 200ms ease;

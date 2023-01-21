@@ -1,13 +1,3 @@
-:root {
-	--editor-scrollbar-color: rgba(0, 0, 0, 0.8);
-	--editor-bg-color: rgba(255, 255, 255, 0.5);
-	--editor-scrollbar-thumb-color: orangered;
-	--editor-border-color: white;
-	--editor-header-color: rgba(140, 0, 248, 0.5);
-	--header-icon-color: white;
-	--text-color: whitesmoke;
-}
-
 .markdown-editor {
 	grid-area: editor;
 	border: 2px solid var(--editor-bg-color);
