@@ -1,16 +1,6 @@
 import React from "react";
 
 const HTMLPreviewer = () => {
-	const resizeWindow = (e) => {
-		if(e.currentTarget.style.width != 100){
-			e.currentTarget.style.width = "100";
-		}
-		else {
-			
-		}
-		
-
-	}
 	return (
 		<div className="html-previewer">
 			<div className="html-previewer-header-section">

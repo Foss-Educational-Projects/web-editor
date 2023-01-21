@@ -8,15 +8,18 @@
 	--text-color:whitesmoke;
 }
 .markdown-editor {
+	grid-area: editor;
 	border: 2px solid var(--editor-bg-color);
 	border-radius: 10px;
 	width: 100%;
+	height: 100%;
 	position: relative;
 	padding: 5px;
 	display: flex;
 	flex-direction: column;
 	background-color: var(--editor-bg-color);
 	color: var(--text-color);
+	transition: height, 100ms ease;
 }
 .markdown-editor-header-section {
 	width: 100%;
@@ -29,7 +32,7 @@
 }
 .markdown-editor-header {
 	padding: 10px 0;
-	width: 90%;
+	width: 95%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -65,7 +68,7 @@
 		}
 	}
 }
-#editor {
+.editor {
 	color: var(--text-color);
 	resize: none;
 	outline: none;
@@ -80,6 +83,7 @@
 	font-family: "Open Sans", monospace;
 	padding: 5px;
 	z-index: 10;
+	transition: height, 200ms ease;
 	&::-webkit-scrollbar {
 		width: 8px;
 		border-radius: 0 10px 10px 0;
