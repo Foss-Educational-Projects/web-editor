@@ -12,3 +12,6 @@
 	color: var(--text-color);
 	transition: height, 100ms ease;
 }
+.button-container button i.fa-angle-up {
+	transition: transform, 200ms ease-in-out;
+}

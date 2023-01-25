@@ -1,3 +1,6 @@
 .page-previewer {
 	grid-area: page-preview;
+	.page-preview-display {
+		background-color: white!important;
+	}
 }

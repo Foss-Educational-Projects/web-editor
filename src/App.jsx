@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div className="App" style={appStyles} ref={appRef}>
-      <MarkdownEditor />
+      <MarkdownEditor containerRef={appRef} />
       <HTMLPreviewer />
       <PagePreviewer />
     </div>
