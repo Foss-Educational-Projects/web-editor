@@ -1,0 +1,16 @@
+.app_grid_change {
+	grid-template-rows: auto!important;
+	grid-template-areas: 
+	'editor html-preview'
+	'page-preview html-preview'
+	!important;
+	transition: all 0.2s ease-in-out;
+}
+.minimize-window {
+	transform: scale(0);
+	transition: transform, 200ms ease-in-out;
+}
+.rotate-minimize-icon {
+	transform: rotateZ(180deg);
+	transition: transform, 200ms ease-in-out;
+}
