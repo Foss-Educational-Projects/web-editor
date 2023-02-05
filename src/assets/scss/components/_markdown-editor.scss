@@ -10,11 +10,20 @@
 	flex-direction: column;
 	background-color: var(--editor-bg-color);
 	color: var(--text-color);
+	overflow: hidden;
 	transition: height, 100ms ease;
 }
 .md-editor {
 	transform-origin: top;
+	overflow-y: scroll;
+	scrollbar-color: orange;
+	scrollbar-width: 5px;
+	&::-webkit-scrollbar {
+		width: 5px;
+		display: none;
+	}
 }
+
 .button-container button i.fa-angle-up {
 	transition: transform, 200ms ease-in-out;
 }

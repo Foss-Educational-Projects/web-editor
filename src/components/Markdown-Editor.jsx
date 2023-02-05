@@ -1,33 +1,29 @@
-import React, { useState, useRef } from "react";
-import classes from './../assets/scss/modules/md_editor.module.scss'
+import React, { useState, useRef } from "react"
+import CodeMirror from "@uiw/react-codemirror"
+import { langs } from '@uiw/codemirror-extensions-langs'
+import { okaidia } from '@uiw/codemirror-theme-okaidia'
+import { EditorView } from "codemirror"
 
-const MarkdownEditor = (props) => {
+const MarkdownEditor = () => {
 	const display = useRef(null)
 	const container = useRef(null)
-
 	const [scale, setScale] = useState(true);
 	const [close, setClose] = useState(true);
+	const onChange = React.useCallback((value, viewUpdate) => {
+	}, []);
 	const scaleWindow = (e) => {
-		(scale ? setScale(false): setScale(true))
+		(scale ? setScale(false) : setScale(true))
 		scale ? e.target.className = "fa-solid fa-down-left-and-up-right-to-center" : 
-		e.target.className = "fa-solid fa-up-right-and-down-left-from-center"
+			e.target.className = "fa-solid fa-up-right-and-down-left-from-center"
 	}
 	const minimizeWindow = (e) => {
-		(close ? setClose(false): setClose(true))
+		(close ? setClose(false) : setClose(true))
 		close ? 
-		e.target.style.transform = "rotateZ(180deg)" : 
-		e.target.style.transform = "rotateZ(0deg)"
+			e.target.style.transform = "rotateZ(180deg)" :
+			e.target.style.transform = "rotateZ(0deg)"
 		close ? 
-		display.current.style.transform = "scaleY(0)" : 
-		display.current.style.transform = "scaleY(1.0)"
-
-		if(close){
-			props.containerRef.current.className = `App ${classes.app_grid_change}`
-			
-		}
-		else {
-			props.containerRef.current.className = `App`
-		}
+			display.current.style.transform = "scaleY(0.0)" : 
+			display.current.style.transform = "scaleY(1.0)"
 	}
 	return (
 		<div className="markdown-editor" ref={container}>
@@ -45,7 +41,15 @@ const MarkdownEditor = (props) => {
 					</div>
 				</header>
 			</div>
-			<textarea id="editor" className="display-section editor md-editor" ref={display}></textarea>
+			<CodeMirror 
+				id="md-editor" 
+				height="100%"
+				className="display-section editor md-editor" 
+				ref={display} 
+				theme={okaidia}
+				extensions={[langs.html(), EditorView.lineWrapping]}
+				onChange={onChange}
+			 />
 		</div>
 	)
 }
