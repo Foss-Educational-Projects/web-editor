@@ -1,55 +1,40 @@
-import React, { useState, useRef } from "react"
-import CodeMirror from "@uiw/react-codemirror"
-import { langs } from '@uiw/codemirror-extensions-langs'
+// React Core Components
+import React, { useState, useCallback , useRef } from "react"
+import { useDispatch } from "react-redux"
+// CodeMirror Components
+import CodeMirror, { useCodeMirror  } from "@uiw/react-codemirror"
+import { markdown } from '@codemirror/lang-markdown'
 import { okaidia } from '@uiw/codemirror-theme-okaidia'
 import { EditorView } from "codemirror"
-
+// Custom Components
+import AppBar from "../shared/Appbar"
+import { setValue } from "../features/editorSlice"
 const MarkdownEditor = () => {
+	const dispatch = useDispatch();
+
 	const display = useRef(null)
 	const container = useRef(null)
-	const [scale, setScale] = useState(true);
-	const [close, setClose] = useState(true);
-	const onChange = React.useCallback((value, viewUpdate) => {
-	}, []);
-	const scaleWindow = (e) => {
-		(scale ? setScale(false) : setScale(true))
-		scale ? e.target.className = "fa-solid fa-down-left-and-up-right-to-center" : 
-			e.target.className = "fa-solid fa-up-right-and-down-left-from-center"
-	}
-	const minimizeWindow = (e) => {
-		(close ? setClose(false) : setClose(true))
-		close ? 
-			e.target.style.transform = "rotateZ(180deg)" :
-			e.target.style.transform = "rotateZ(0deg)"
-		close ? 
-			display.current.style.transform = "scaleY(0.0)" : 
-			display.current.style.transform = "scaleY(1.0)"
-	}
+	const editor = useRef();
+	const extensions = [markdown()];
+	const { setContainer } = useCodeMirror({
+		container: editor.current,
+		extensions
+	});
+	const getContent = useCallback((value, viewUpdate) => {
+		dispatch(setValue(value))
+	})
 	return (
 		<div className="markdown-editor" ref={container}>
-			<div className="header-section">
-				<header className="header">
-					<i className="fa-brands fa-markdown header-icon" id="markdown-header-icon"></i>
-					<p>Markdown Editor</p>
-					<div className="button-container">
-						<button className="scale-window" id="scale" onClick={scaleWindow}>
-							<i className="fa-solid fa-up-right-and-down-left-from-center"></i>
-						</button>
-						<button className="minimize-window" id="minimize" onClick={minimizeWindow}>
-							<i className="fa-solid fa-angle-up"></i>
-						</button>
-					</div>
-				</header>
-			</div>
+			<AppBar sharable={false} header="MD Editor" icon="fa-brands fa-markdown" id="html-header-icon" />
 			<CodeMirror 
 				id="md-editor" 
 				height="100%"
 				className="display-section editor md-editor" 
 				ref={display} 
 				theme={okaidia}
-				extensions={[langs.html(), EditorView.lineWrapping]}
-				onChange={onChange}
-			 />
+				extensions={[EditorView.lineWrapping]}
+				onChange={getContent}
+			/>
 		</div>
 	)
 }
