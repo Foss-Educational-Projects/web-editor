@@ -8,7 +8,6 @@ import './assets/scss/main.scss'
 function App() {
   return (
     <div className="App">
-
       <MarkdownEditor />
       <HTMLPreviewer />
       <PagePreviewer />
