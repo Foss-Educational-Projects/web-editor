@@ -1,46 +1,18 @@
 import React from "react";
 import { useState, useRef } from "react";
-import { Tooltip, OverlayTrigger } from 'react-bootstrap'
+import { useSelector } from "react-redux";
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import AppBar from "../shared/Appbar";
 const PagePreviewer = () => {
+	const code = useSelector(state => state.editor.value)
 	return (
 		<div className="page-previewer window">
-			<div className="header-section">
-				<header className="page-previewer-header header">
-					<i className="fa-solid fa-display header-icon" id="markdown-header-icon"></i>
-					<p>Preview</p>
-					<div className="button-container">
-						<OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Preview</Tooltip>}>
-							<button  
-								className="minimize-window" 
-								id="minimize" 
-							>
-								<i className="fa-solid fa-arrow-up-right-from-square"></i>
-							</button>
-						</OverlayTrigger>
-
-						<OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Scale</Tooltip>}>
-							<button 
-								className="scale-window" 
-								id="scale"
-							>
-								<i className="fa-solid fa-up-right-and-down-left-from-center"></i>
-							</button>
-						</OverlayTrigger>
-						
-						<OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Minimize</Tooltip>}>
-							<button 
-								className="minimize-window" 
-								id="minimize"
-							>
-								<i className="fa-solid fa-minus"></i>
-							</button>
-						</OverlayTrigger>
-					</div>
-				</header>
+			<AppBar sharable={true} header="Previewer" icon="fa-solid fa-display" id="html-header-icon" styles={{gridTemplateColumns: "80px 1fr 120px"}} />
+			<div className="display-section page-preview-display">
+				<ReactMarkdown children={code} />
 			</div>
-			<div className="display-section page-preview-display"></div>
 		</div>
 	)
 }
