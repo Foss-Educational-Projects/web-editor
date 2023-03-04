@@ -4,9 +4,12 @@ import { langs } from '@uiw/codemirror-extensions-langs'
 import { okaidia } from '@uiw/codemirror-theme-okaidia'
 import { EditorView } from "codemirror"
 import AppBar from "../shared/Appbar";
+import { NodeHtmlMarkdown, NodeHtmlMarkdownOptions } from 'node-html-markdown'
 
 const HTMLPreviewer = () => {
-	const onChange = React.useCallback((value, viewUpdate) => {
+	
+	const getHTMLValue = React.useCallback((value, viewUpdate) => {
+		
 	}, []);
 	return (
 		<div className="html-previewer window">
@@ -14,9 +17,10 @@ const HTMLPreviewer = () => {
 			<CodeMirror 
 				id="md-editor" 
 				height="100%"
-				className="display-section editor md-editor"  
+				className="display-section editor md-editor"
 				theme={okaidia}
 				extensions={[langs.html(), EditorView.lineWrapping]}
+				onChange={getHTMLValue}
 			 />
 		</div>
 	)

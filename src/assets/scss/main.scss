@@ -8,7 +8,7 @@
 	--editor-border-color: white;
 	--editor-header-color: rgba(140, 0, 248, 0.8);
 	--header-icon-color: white;
-	--text-color: whitesmoke;
+	--text-color: black;
 }
 
 * {
@@ -83,6 +83,7 @@ body {
 		grid-template-columns: 80px 1fr 80px;
 		justify-content: center;
 		align-items: center;
+		color: white;
 		p {
 			font-size: 1.5em;
 			text-align: center;
