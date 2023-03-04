@@ -1,15 +1,22 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+
 import CodeMirror from "@uiw/react-codemirror"
-import { langs } from '@uiw/codemirror-extensions-langs'
 import { okaidia } from '@uiw/codemirror-theme-okaidia'
 import { EditorView } from "codemirror"
+import { html } from '@codemirror/lang-html'
+import TurndownService from "turndown";
 import AppBar from "../shared/Appbar";
-import { NodeHtmlMarkdown, NodeHtmlMarkdownOptions } from 'node-html-markdown'
+
+import { setHTMLValue } from "../features/editorSlice";
 
 const HTMLPreviewer = () => {
-	
+	const turnDownService = new TurndownService()
+
+	const dispatch = useDispatch()
 	const getHTMLValue = React.useCallback((value, viewUpdate) => {
-		
+		const transformedHTML = turnDownService.turndown(value)
+		dispatch(setHTMLValue(transformedHTML))
 	}, []);
 	return (
 		<div className="html-previewer window">
@@ -19,7 +26,7 @@ const HTMLPreviewer = () => {
 				height="100%"
 				className="display-section editor md-editor"
 				theme={okaidia}
-				extensions={[langs.html(), EditorView.lineWrapping]}
+				extensions={[html(), EditorView.lineWrapping]}
 				onChange={getHTMLValue}
 			 />
 		</div>
