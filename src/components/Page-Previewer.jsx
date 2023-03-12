@@ -10,7 +10,7 @@ const PagePreviewer = () => {
 	const code = useSelector(state => state.editor.value)
 	return (
 		<div className="page-previewer window">
-			<AppBar sharable={true} header="Previewer" icon="fa-solid fa-display" id="html-header-icon" styles={{gridTemplateColumns: "80px 1fr 120px"}} />
+			<AppBar sharable={false} header="Previewer" icon="fa-solid fa-display" id="html-header-icon" styles={{gridTemplateColumns: "80px 1fr 120px"}} />
 			<div className="display-section page-preview-display">
 				<ReactMarkdown children={code} rehypePlugins={[rehypeRaw]} />
 			</div>
