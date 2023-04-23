@@ -26,8 +26,10 @@ const MarkdownEditor = () => {
 		extensions
 	});
 	const getContent = useCallback((value, _) => {
-		let data = markdown(`${value}`)
+		
+		let data = markdown(value.toString())
 		dispatch(setValue(data))
+		console.log(typeof(data))
 		localStorage.setItem("md-editor-text", value)
 	})
 	useEffect(() => {

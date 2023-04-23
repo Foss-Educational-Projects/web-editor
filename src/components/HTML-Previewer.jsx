@@ -8,7 +8,7 @@ import AppBar from "../shared/Appbar";
 
 const HTMLPreviewer = () => {
 
-	const value = useSelector(state => state.editor.value) 
+	const value = useSelector(state => state.editor.value)
 	return (
 		<div className="html-previewer window">
 			<AppBar sharable={false} header="HTML Preview" icon="fa-brands fa-html5" id="html-header-icon" />
