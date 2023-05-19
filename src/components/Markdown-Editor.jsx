@@ -27,7 +27,7 @@ const MarkdownEditor = () => {
 	});
 	const getContent = useCallback((value, _) => {
 		
-		let data = markdown(value.toString())
+		let data = markdown(value)
 		dispatch(setValue(data))
 		console.log(typeof(data))
 		localStorage.setItem("md-editor-text", value)
@@ -35,7 +35,7 @@ const MarkdownEditor = () => {
 	useEffect(() => {
 		let val = localStorage.getItem("md-editor-text")
 		let data = markdown(val)
-		setState(val)
+		setState(`${val}`)
 		dispatch(setValue(data))
 	}, [])
 	return (
