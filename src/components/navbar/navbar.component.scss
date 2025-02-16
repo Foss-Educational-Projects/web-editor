@@ -1,0 +1,12 @@
+.navbar__main {
+    background-color: darkgray;
+    padding: 10px;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 50px 1fr 50px;
+    align-items: center;
+    font-family: sans-serif;
+}
+.navbar__title {
+    text-align: center;
+}
