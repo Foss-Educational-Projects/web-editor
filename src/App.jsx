@@ -1,16 +1,12 @@
 import React from 'react'
-import MarkdownEditor from './components/Markdown-Editor'
-import HTMLPreviewer from './components/HTML-Previewer'
-import PagePreviewer from './components/Page-Previewer'
 
-import './assets/scss/main.scss'
+import './App.scss'
+import Navbar from './components/navbar/Navbar.component'
 
 function App() {
 	return (
 		<div className="App">
-			<MarkdownEditor />
-			<HTMLPreviewer />
-			<PagePreviewer />
+			<Navbar />
 		</div>
 	)
 }
