@@ -5,4 +5,23 @@
 }
 .App {
     padding: 5px;
+    font-family: Montserrat, sans-serif;
+}
+.align__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+@font-face {
+    font-family: Montserrat;
+    src: url('./assets/fonts/Montserrat-Regular.ttf');
+}
+h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+}
+.container {
+    margin-top: 5px;
+    background-color: gray;
+    border-radius: 10px;
 }
