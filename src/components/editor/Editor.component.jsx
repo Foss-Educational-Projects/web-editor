@@ -2,7 +2,9 @@ import './editor.component.scss';
 
 const Editor = () => {
     return (
-        <h1>Editor</h1>
+        <div className='container editor__main'>
+        {/* <Editor theme="vs-dark" language="javascript" defaultValue="// Write Code..." height="calc(100vh - 65px)" /> */}
+        </div>
     )
 }
 export default Editor;
