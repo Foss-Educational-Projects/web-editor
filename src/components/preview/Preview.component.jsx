@@ -2,7 +2,9 @@ import './preview.component.scss';
 
 const Preview = () => {
     return (
-        <h1>Preview</h1>
+        <div className='container preview__main'>
+            
+        </div>
     )
 }
 export default Preview;
