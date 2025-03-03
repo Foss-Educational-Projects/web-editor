@@ -17,7 +17,7 @@ const Editor = () => {
                 theme="gruvbox_dark_hard"
                 height='100%'
                 width='100%'
-                // onChange={onChange}
+                fontSize={16}
                 name="editor"
                 editorProps={{ $blockScrolling: true }}
                 className='ace__editor__main'
