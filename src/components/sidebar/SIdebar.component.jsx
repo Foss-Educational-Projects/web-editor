@@ -11,6 +11,7 @@ import Control from './../control/Control.component'
 
 const Sidebar = () => {
     const { show } = useContext(AppContext)
+
     const sidebarList = [
         { id: 1, title: 'Markdown Converter', url: '' },
         { id: 2, title: 'SCSS Converter', url: '' },
@@ -18,8 +19,8 @@ const Sidebar = () => {
     ]
     const ColorSchemes = [
         { id: 1, title: 'GitHub Light', value: 'github' },
-        { id: 1, title: 'Monokai', value: 'monokai' },
-        { id: 1, title: 'Twilight', value: 'twilight' }
+        { id: 2, title: 'Monokai', value: 'monokai' },
+        { id: 3, title: 'Twilight', value: 'twilight' }
     ]
     // Trigger Handlers
     const handleSelect = () => {
