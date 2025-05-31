@@ -23,7 +23,7 @@ const Sidebar = () => {
         { id: 3, title: 'Twilight', value: 'twilight' }
     ]
     // Trigger Handlers
-    const handleSelect = () => {
+    const handleSelect = (item) => {
         
     }
     return (

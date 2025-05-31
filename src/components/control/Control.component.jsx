@@ -1,16 +1,17 @@
 // React Bootstrap Imports
 import { Form, InputGroup } from 'react-bootstrap'
-
+import { store } from '../../store/store';
 // Stylesheet Imports
 import './control.component.scss';
 
 // Root Component (Control)
 const Control = () => {
+    const useStore = store((state) => state)
     return (
         <Form action="" className='editor__control__form'>
             <fieldset className='editor__control__form--settings'>
                 <legend>Editor Settings</legend>
-                <Form.Check className='mb-3' type='checkbox' label='Autocompletion' />
+                <Form.Check checked={useStore.snippets ? true : false} className='mb-3' type='checkbox' onChange={() => useStore.toggleSnippets()} label='Autocompletion' />
                 <Form.Check className='mb-3' type='checkbox' label='Use Spaces Instead of Tabs' />
                 <InputGroup className='d-flex justify-center align-items-center mb-3'>
                     <Form.Label id='editor-fontsize' className='mx-1 mb-0'>Font Size : </Form.Label>
