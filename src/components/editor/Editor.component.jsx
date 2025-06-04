@@ -22,12 +22,20 @@ const Editor = () => {
     const useStore = store((prop) => prop)
     return (
         <div className='container editor__main'>
+            <div className='editor__main--language--selector'>
+                <select>
+                    <option value="Javascript">Javascript</option>
+                    <option value="Python">Python</option>
+                    <option value="Lua">Lua</option>
+                </select>
+            </div>
             <AceEditor
                 enableLiveAutocompletion={useStore.snippets}
                 mode={useStore.language}
                 theme={useStore.themeing}
                 height='100%'
                 width='100%'
+                wrapEnabled
                 fontSize={useStore.fontSize}
                 name="editor"
                 editorProps={{ $blockScrolling: true }}

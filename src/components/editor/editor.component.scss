@@ -1,6 +1,21 @@
 .editor__main {
     padding:0.2px;
+    position: relative;
 }
 .ace__editor--main {
     border-radius: 10px;
+}
+.editor__main--language--selector {
+    position: absolute;
+    z-index: 1;
+    right: 5px;
+    top: 5px;
+}
+.editor__main--language--selector select {
+    border-radius: 10px;
+    text-align: center;
+    padding: 2.5px;
+    width: 150px;
+    background-color: rgba(80, 75, 75, 0.397);
+    color: black;
 }
