@@ -4,6 +4,7 @@ import AceEditor from 'react-ace'
 /* Import Ace Editor Colorscheme */
 import "ace-builds/src-noconflict/theme-github";
 import "ace-builds/src-noconflict/theme-monokai";
+import "ace-builds/src-noconflict/theme-twilight";
 import "ace-builds/src-noconflict/ext-language_tools";
 import 'ace-builds/src-noconflict/theme-gruvbox_dark_hard';
 
@@ -20,6 +21,8 @@ import './editor.component.scss';
 // Root Component (Editor)
 const Editor = () => {
     const useStore = store((prop) => prop)
+
+    console.log(useStore.fontSize)
     return (
         <div className='container editor__main'>
             <div className='editor__main--language--selector'>
@@ -32,11 +35,13 @@ const Editor = () => {
             <AceEditor
                 enableLiveAutocompletion={useStore.snippets}
                 mode={useStore.language}
-                theme={useStore.themeing}
+                theme={useStore.theme}
                 height='100%'
                 width='100%'
+                tabSize={useStore.tabWidth}
+                fontSize={parseInt(useStore.fontSize)}
+                setOptions={{fontFamily: 'UbuntuMono, monospace'}}
                 wrapEnabled
-                fontSize={useStore.fontSize}
                 name="editor"
                 editorProps={{ $blockScrolling: true }}
                 className='ace__editor--main'
