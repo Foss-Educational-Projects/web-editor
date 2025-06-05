@@ -1,4 +1,4 @@
-import { Dropdown } from 'react-bootstrap';
+import { Dropdown, DropdownButton } from 'react-bootstrap';
 
 import SidebarToggleButton from '../../modules/sidebar-toggle-button/SidebarToggleButton.module';
 
@@ -8,8 +8,10 @@ import { useContext } from 'react';
 import AppContext from '../../context/App.context';
 
 import Control from './../control/Control.component'
+import { store } from '../../store/store';
 
 const Sidebar = () => {
+    const useStore = store((state) => state)
     const { show } = useContext(AppContext)
 
     const sidebarList = [
@@ -20,12 +22,10 @@ const Sidebar = () => {
     const ColorSchemes = [
         { id: 1, title: 'GitHub Light', value: 'github' },
         { id: 2, title: 'Monokai', value: 'monokai' },
-        { id: 3, title: 'Twilight', value: 'twilight' }
+        { id: 3, title: 'Twilight', value: 'twilight' },
+        { id: 4, title: 'Gruvbox', value: 'gruvbox_dark_hard' },
     ]
-    // Trigger Handlers
-    const handleSelect = (item) => {
-        
-    }
+
     return (
         <aside className='sidebar__main' style={{ left: show ? '5px' : '-300px' }}>
             <header className='sidebar__header__title'>
@@ -43,20 +43,18 @@ const Sidebar = () => {
 
             </ul>
             <Control />
-            <Dropdown>
-                <Dropdown.Toggle style={{ width: '100%', borderRadius: '20px' }} variant="secondary" id="dropdown-basic">
-                    Change Colorscheme
-                </Dropdown.Toggle>
-
-                <Dropdown.Menu variant='dark' style={{ width: '100%' }}>
+            <Dropdown >
+                <DropdownButton style={{ width: '100%', borderRadius: '20px' }} variant="secondary" id="dropdown-basic" title="Change Colorscheme" onSelect={(e) => useStore.changeTheme(e)}>
+                   
                     {ColorSchemes.map((schemes) => {
                         return (
-                            <Dropdown.Item onSelect={handleSelect(schemes.value)} variant='secondary' key={schemes.id} href="#">{schemes.title}</Dropdown.Item>
+                            <Dropdown.Item variant='secondary' key={schemes.id} href='#' eventKey={schemes.value}>{schemes.title}</Dropdown.Item>
                         )
                     })}
-                </Dropdown.Menu>
+
+                </DropdownButton>
             </Dropdown>
-            
+
         </aside>
     )
 }
