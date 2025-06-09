@@ -1,0 +1,19 @@
+.toolbar {
+    background-color: purple;
+    margin-top: 10px;
+    border-radius: 5px;
+    padding: 5px;
+}
+.editor__main--language--selector {
+}
+.editor__main--language--selector select {
+    border-radius: 10px;
+    text-align: center;
+    padding: 2.5px;
+    width: 150px;
+    background-color: var(--selector-bg-color);
+}
+
+.editor__control--select {
+    background-color: var(--selector-bg-color);
+}
