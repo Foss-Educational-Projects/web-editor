@@ -11,6 +11,8 @@ import 'ace-builds/src-noconflict/theme-gruvbox_dark_hard';
 /* Import Ace Editor Language */
 import "ace-builds/src-noconflict/mode-javascript";
 import "ace-builds/src-noconflict/mode-python";
+import "ace-builds/src-noconflict/mode-lua";
+import "ace-builds/src-noconflict/mode-ruby";
 
 // Import Zustand Store
 import { store } from '../../store/store';
@@ -22,16 +24,8 @@ import './editor.component.scss';
 const Editor = () => {
     const useStore = store((prop) => prop)
 
-    console.log(useStore.fontSize)
     return (
         <div className='container editor__main'>
-            <div className='editor__main--language--selector'>
-                <select>
-                    <option value="Javascript">Javascript</option>
-                    <option value="Python">Python</option>
-                    <option value="Lua">Lua</option>
-                </select>
-            </div>
             <AceEditor
                 enableLiveAutocompletion={useStore.snippets}
                 mode={useStore.language}
@@ -40,7 +34,11 @@ const Editor = () => {
                 width='100%'
                 tabSize={useStore.tabWidth}
                 fontSize={parseInt(useStore.fontSize)}
-                setOptions={{fontFamily: 'UbuntuMono, monospace'}}
+                setOptions={
+                                { fontFamily: `${useStore.fontFamily}, monospace`,
+                                  useSoftTabs: useStore.useSpace
+                                }
+                            }
                 wrapEnabled
                 name="editor"
                 editorProps={{ $blockScrolling: true }}
