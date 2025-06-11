@@ -5,7 +5,7 @@ const store = create((set) => ({
     tabWidth: 4,
     autosave: false,
     useSpace: false,
-    snippets: false,
+    snippets: true,
     fontFamily: 'CascadiaCode',
     theme: 'github',
     language: 'javascript',
@@ -13,6 +13,8 @@ const store = create((set) => ({
     changeTheme: (theme) => set(() => ({ theme: theme })),
     changeTabWidth:(tabWidth) => set(() => ({ tabWidth: tabWidth })),
     changeFontFamily: (fontFamily) => set(() => ({ fontFamily: fontFamily })),
-    changeFontSize: (fontSize) => set(() => ({ fontSize: fontSize }))
+    changeFontSize: (fontSize) => set(() => ({ fontSize: fontSize })),
+    changeLanguage: (language) => set(() => ({ language: language })),
+    toggleSpacing: () => set((state) => ({ useSpace: !state.useSpace }))
 }))
 export { store };
