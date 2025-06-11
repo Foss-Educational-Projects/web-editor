@@ -53,3 +53,9 @@
         transition: background-color, 200ms ease-in-out;
     }
 }
+
+.sidebar__list--colorscheme {
+    background-color: var(--selector-bg-color);
+    padding: 5px;
+    border-radius: 10px;
+}

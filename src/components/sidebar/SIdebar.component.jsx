@@ -1,5 +1,3 @@
-import { Dropdown, DropdownButton } from 'react-bootstrap';
-
 import SidebarToggleButton from '../../modules/sidebar-toggle-button/SidebarToggleButton.module';
 
 import './sidebar.component.scss';
@@ -7,9 +5,11 @@ import { useContext } from 'react';
 
 import AppContext from '../../context/App.context';
 
-import Control from './../control/Control.component'
+import Control from './../control/Control.component';
+
 import { store } from '../../store/store';
 
+// Root Component (Sidebar)
 const Sidebar = () => {
     const useStore = store((state) => state)
     const { show } = useContext(AppContext)
@@ -17,8 +17,9 @@ const Sidebar = () => {
     const sidebarList = [
         { id: 1, title: 'Markdown Converter', url: '' },
         { id: 2, title: 'SCSS Converter', url: '' },
-        { id: 3, title: 'Typescript Converter', url: '' },
+        { id: 3, title: 'Typescript Converter', url: '' }
     ]
+
     const ColorSchemes = [
         { id: 1, title: 'GitHub Light', value: 'github' },
         { id: 2, title: 'Monokai', value: 'monokai' },
@@ -27,7 +28,7 @@ const Sidebar = () => {
     ]
 
     return (
-        <aside className='sidebar__main' style={{ left: show ? '5px' : '-300px' }}>
+        <aside className='sidebar__main bg-black text-white' style={{ left: show ? '5px' : '-300px' }}>
             <header className='sidebar__header__title'>
                 <h3>Converters</h3>
                 <SidebarToggleButton />
@@ -40,22 +41,17 @@ const Sidebar = () => {
                         </li>
                     )
                 })}
-
             </ul>
             <Control />
-            <Dropdown >
-                <DropdownButton style={{ width: '100%', borderRadius: '20px' }} variant="secondary" id="dropdown-basic" title="Change Colorscheme" onSelect={(e) => useStore.changeTheme(e)}>
-                   
-                    {ColorSchemes.map((schemes) => {
-                        return (
-                            <Dropdown.Item variant='secondary' key={schemes.id} href='#' eventKey={schemes.value}>{schemes.title}</Dropdown.Item>
-                        )
-                    })}
-
-                </DropdownButton>
-            </Dropdown>
-
+            <select className='sidebar__list--colorscheme text-white' onChange={(e) => useStore.changeTheme(e.target.value)} style={{width: '100%', marginTop: '0'}}>
+                {ColorSchemes.map((schemes) => {
+                    return (
+                        <option variant='secondary' key={schemes.id} href='#' value={schemes.value}>{schemes.title}</option>
+                    )
+                })}
+            </select>
         </aside>
     )
 }
+
 export default Sidebar;
