@@ -7,6 +7,9 @@ const Preview = () => {
     return (
         <div className='container preview__main'>
             <Toolbar />
+            <div className='container preview__main--output'>
+
+            </div>
         </div>
     )
 }
