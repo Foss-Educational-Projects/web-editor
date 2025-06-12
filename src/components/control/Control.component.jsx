@@ -57,6 +57,8 @@ const Control = () => {
                             )
                         })}
                     </Form.Select>
+                </InputGroup>
+                <InputGroup>
                     <Form.Select className='editor__control--select text-white' style={{ marginTop: 15 }} size='sm' id='editor-fontfamily' onChange={(e) => useStore.changeFontFamily(e.target.value)}>
 
                         {fontFamilyList.map((item) => {
