@@ -19,11 +19,16 @@ import { store } from '../../store/store';
 
 // Import Stylesheet
 import './editor.component.scss';
+import { useState } from 'react';
 
 // Root Component (Editor)
 const Editor = () => {
     const useStore = store((prop) => prop)
-
+    const [ code, setCode ] = useState('')
+    const handleEditorSubmit =(value) => {
+        useStore.captureEditorCode(value)
+        setCode(value)
+    }
     return (
         <div className='container editor__main'>
             <AceEditor
@@ -32,18 +37,23 @@ const Editor = () => {
                 theme={useStore.theme}
                 height='100%'
                 width='100%'
+                onChange={handleEditorSubmit}
                 tabSize={useStore.tabWidth}
                 fontSize={parseInt(useStore.fontSize)}
                 setOptions={
-                                { fontFamily: `${useStore.fontFamily}, monospace`,
-                                  useSoftTabs: useStore.useSpace
+                                { 
+                                    fontFamily: `${useStore.fontFamily}, monospace`,
+                                    useSoftTabs: useStore.useSpace
                                 }
-                            }
+                           }
                 wrapEnabled
                 name="editor"
                 editorProps={{ $blockScrolling: true }}
                 className='ace__editor--main'
             />
+            <form method='post' id='editor-form' action='' style={{display: 'none'}} onSubmit={handleEditorSubmit}>
+                <textarea name='editor_input' value={code} id='editor-form-textarea'></textarea>
+            </form>
         </div>
     )
 }

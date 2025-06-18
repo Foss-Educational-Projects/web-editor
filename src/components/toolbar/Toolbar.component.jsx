@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 // Zustand Imports
 import { store } from '../../store/store';
 
@@ -13,6 +15,12 @@ import './toolbar.component.scss';
 // Root Component (Toolbar)
 const Toolbar = () => {
 	const useStore = store((prop) => prop)
+	const handleEditorSubmit = (e) => {
+		e.preventDefault();
+		axios.post('http://localhost:3000/api', { code: useStore.editorCode })
+		.then((response) => console.log(response))
+		.catch((error) => console.error(error));
+	}
 	const languageList = [
 		{ id: 1, value: 'javascript', title: 'Javascript' },
 		{ id: 2, value: 'python', title: 'Python' },
@@ -32,7 +40,7 @@ const Toolbar = () => {
 				</select>
 			</div>
 			<div className='editor__main--language--control'>
-				<Button className='rounded-pill bg-success'>
+				<Button type='submit' onClick={handleEditorSubmit} form='editor-form' className='rounded-pill bg-success'>
 					<FaRunning size={20} />
 				</Button>
 			</div>

@@ -9,6 +9,8 @@ const store = create((set) => ({
     fontFamily: 'CascadiaCode',
     theme: 'github',
     language: 'javascript',
+    editorCode: '',
+    captureEditorCode: (code) => set(() => ({ editorCode: code })),
     toggleSnippets: () => set((state) => ({ snippets: !state.snippets})),
     changeTheme: (theme) => set(() => ({ theme: theme })),
     changeTabWidth:(tabWidth) => set(() => ({ tabWidth: tabWidth })),
