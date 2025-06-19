@@ -1,5 +1,7 @@
 import { create } from 'zustand'
+import { persist } from 'zustand/middleware';
 
+// Global Store Object
 const store = create((set) => ({
     fontSize: 16,
     tabWidth: 4,
@@ -10,7 +12,7 @@ const store = create((set) => ({
     theme: 'github',
     language: 'javascript',
     editorCode: '',
-    editorOutput: '',
+    editorOutput: ``,
     captureEditorCode: (code) => set(() => ({ editorCode: code })),
     captureEditorOutput: (output) => set(() => ({ editorOutput: output })),
     toggleSnippets: () => set((state) => ({ snippets: !state.snippets})),
