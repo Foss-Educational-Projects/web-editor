@@ -52,7 +52,7 @@ const Editor = () => {
                 className='ace__editor--main'
             />
             <form method='post' id='editor-form' action='' style={{display: 'none'}} onSubmit={handleEditorSubmit}>
-                <textarea name='editor_input' value={code} id='editor-form-textarea'></textarea>
+                <textarea readOnly name='editor_input' value={code} id='editor-form-textarea'></textarea>
             </form>
         </div>
     )
