@@ -17,8 +17,8 @@ const Toolbar = () => {
 	const useStore = store((prop) => prop)
 	const handleEditorSubmit = (e) => {
 		e.preventDefault();
-		axios.post('http://localhost:3000/api', { code: useStore.editorCode })
-		.then((response) => console.log(response))
+		axios.post('http://localhost:3000/api',  { code: useStore.editorCode, lang: useStore.language })
+		.then((response) => useStore.captureEditorOutput(response.data.output))
 		.catch((error) => console.error(error));
 	}
 	const languageList = [
