@@ -1,3 +1,5 @@
+// React Imports
+import { useState, useEffect } from 'react';
 
 // React Bootstrap Imports
 import { Form, InputGroup } from 'react-bootstrap'
@@ -8,6 +10,19 @@ import './control.component.scss';
 // Root Component (Control)
 const Control = () => {
     const useStore = store((state) => state)
+    const [font, setFont] = useState('')
+
+    const handleFontFamily = (e) => {
+        localStorage.setItem('font-family', e.target.value)
+        useStore.changeFontFamily(e.target.value)
+    }
+    useEffect((e) => {
+        const fontFamily = localStorage.getItem('font-family')
+        setFont(fontFamily)
+        if (fontFamily) {
+            useStore.changeFontFamily(fontFamily)
+        }
+    }, [font])
     const fontFamilyList = [
         { id: 1, title: 'Ubuntu Mono', value: 'UbuntuMono' },
         { id: 2, title: 'Iosevka', value: 'Iosevka' },
@@ -59,11 +74,11 @@ const Control = () => {
                     </Form.Select>
                 </InputGroup>
                 <InputGroup>
-                    <Form.Select className='editor__control--select text-white' style={{ marginTop: 15 }} size='sm' id='editor-fontfamily' onChange={(e) => useStore.changeFontFamily(e.target.value)}>
+                    <Form.Select className='editor__control--select text-white' style={{ marginTop: 15 }} size='sm' id='editor-fontfamily' onChange={handleFontFamily}>
 
                         {fontFamilyList.map((item) => {
                             return (
-                                <option key={item.id} className='text-center fw-bolder' value={item.value}>{item.title}</option>
+                                <option selected={item.value === font ? 'selected' : ''}  key={item.id} className='text-center fw-bolder' value={item.value}>{item.title}</option>
                             )
                         })}
                     </Form.Select>
