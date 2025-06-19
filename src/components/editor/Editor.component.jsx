@@ -19,22 +19,31 @@ import { store } from '../../store/store';
 
 // Import Stylesheet
 import './editor.component.scss';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // Root Component (Editor)
 const Editor = () => {
-    const useStore = store((prop) => prop)
+    const useStore = store((state) => state)
     const [ code, setCode ] = useState('')
     const handleEditorSubmit =(value) => {
         useStore.captureEditorCode(value)
+        localStorage.setItem('editor-code-value', value)
         setCode(value)
     }
+    useEffect(() => {
+        const userTypedData = localStorage.getItem('editor-code-value')
+        setCode(userTypedData)
+    }, [])
+
     return (
         <div className='container editor__main'>
             <AceEditor
                 enableLiveAutocompletion={useStore.snippets}
+                enableBasicAutocompletion={useStore.snippets}
+                enableSnippets={false}
                 mode={useStore.language}
                 theme={useStore.theme}
+                value={code}
                 height='100%'
                 width='100%'
                 onChange={handleEditorSubmit}
