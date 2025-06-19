@@ -5,21 +5,25 @@ import { useContext } from 'react';
 
 import AppContext from '../../context/App.context';
 
-import Control from './../control/Control.component';
+import Control from '../control/Control.component';
 
 import { store } from '../../store/store';
 
 import { useEffect } from 'react';
+import { useState } from 'react';
 
 // Root Component (Sidebar)
 const Sidebar = () => {
     const useStore = store((state) => state)
+    const [ theme, setTheme ] = useState('')
     const handleColorScheme = (e) => {
         localStorage.setItem('colorscheme', e.target.value)
         useStore.changeTheme(e.target.value)
     }
+
     useEffect(() => {
 		const colorScheme = localStorage.getItem('colorscheme')
+        setTheme(colorScheme)
 		if (colorScheme) {
 			useStore.changeTheme(colorScheme)
 		}
@@ -59,7 +63,7 @@ const Sidebar = () => {
             <select className='sidebar__list--colorscheme text-white' onChange={handleColorScheme} style={{width: '100%', marginTop: '0'}}>
                 {ColorSchemes.map((schemes) => {
                     return (
-                        <option variant='secondary' key={schemes.id} href='#' value={schemes.value}>{schemes.title}</option>
+                        <option selected={schemes.value === theme ? 'selected' : ''} variant='secondary' key={schemes.id} href='#' value={schemes.value}>{schemes.title}</option>
                     )
                 })}
             </select>
