@@ -9,6 +9,7 @@ import { Button } from 'react-bootstrap';
 // React Icons Imports
 import { FaRunning } from "react-icons/fa";
 import { LuPaintbrush } from "react-icons/lu";
+import { FaWandMagicSparkles } from "react-icons/fa6";
 
 // Stylesheet Imports
 import './toolbar.component.scss';
@@ -26,8 +27,7 @@ const Toolbar = () => {
 	const languageList = [
 		{ id: 1, value: 'javascript', title: 'Javascript' },
 		{ id: 2, value: 'python', title: 'Python' },
-		{ id: 3, value: 'lua', title: 'Lua' },
-		{ id: 4, value: 'ruby', title: 'Ruby' }
+		{ id: 3, value: 'lua', title: 'Lua' }
 	]
 
 	return (
@@ -42,6 +42,9 @@ const Toolbar = () => {
 				</select>
 			</div>
 			<div className='editor__main--language--control'>
+				<Button type='button' className='rounded-pill bg-secondary mx-1'>
+					<FaWandMagicSparkles size={20} />
+				</Button>
 				<Button type='button' onClick={() => useStore.captureEditorOutput('')} className='rounded-pill bg-primary mx-1'>
 					<LuPaintbrush size={20} />
 				</Button>
