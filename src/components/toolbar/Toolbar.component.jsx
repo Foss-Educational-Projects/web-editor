@@ -8,6 +8,7 @@ import { Button } from 'react-bootstrap';
 
 // React Icons Imports
 import { FaRunning } from "react-icons/fa";
+import { LuPaintbrush } from "react-icons/lu";
 
 // Stylesheet Imports
 import './toolbar.component.scss';
@@ -21,6 +22,7 @@ const Toolbar = () => {
 		.then((response) => useStore.captureEditorOutput(response.data.output))
 		.catch((error) => console.error(error));
 	}
+	
 	const languageList = [
 		{ id: 1, value: 'javascript', title: 'Javascript' },
 		{ id: 2, value: 'python', title: 'Python' },
@@ -40,7 +42,10 @@ const Toolbar = () => {
 				</select>
 			</div>
 			<div className='editor__main--language--control'>
-				<Button type='submit' onClick={handleEditorSubmit} form='editor-form' className='rounded-pill bg-success'>
+				<Button type='button' onClick={() => useStore.captureEditorOutput('')} className='rounded-pill bg-primary mx-1'>
+					<LuPaintbrush size={20} />
+				</Button>
+				<Button type='submit' onClick={handleEditorSubmit} form='editor-form' className='rounded-pill bg-success mx-1'>
 					<FaRunning size={20} />
 				</Button>
 			</div>
