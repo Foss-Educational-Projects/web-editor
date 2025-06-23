@@ -1,68 +1,81 @@
 :root {
-    --selector-bg-color:rgb(36, 31, 31);
+    --selector-bg-color: rgb(36 31 31);
 }
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-.App {
+
+.app {
     padding: 5px;
     font-family: Montserrat, sans-serif;
 }
+
 .align__icon {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 5px;
 }
+
 @font-face {
     font-family: Montserrat;
-    src: url('./assets/fonts/Montserrat Regular.ttf');
+    src: url('./assets/fonts/Montserrat Regular.woff2');
 }
 
 @font-face {
     font-family: Hack;
-    src: url('./assets/fonts/Hack Regular.ttf');
+    src: url('./assets/fonts/Hack Regular.woff2');
 }
+
 @font-face {
     font-family: UbuntuMono;
-    src: url('./assets/fonts/Ubuntu Mono Regular.ttf');
+    src: url('./assets/fonts/Ubuntu Mono Regular.woff2');
 }
+
 @font-face {
     font-family: FiraCode;
-    src: url('./assets/fonts/Fira Code Regular.ttf');
+    src: url('./assets/fonts/Fira Code Regular.woff2');
 }
+
 @font-face {
     font-family: CascadiaCode;
-    src: url('./assets/fonts/Cascadia Code Regular.ttf');
+    src: url('./assets/fonts/Cascadia Code Regular.woff2');
 }
+
 @font-face {
     font-family: DejaVuSans;
-    src: url('./assets/fonts/DejaVu Sans Regular.ttf');
+    src: url('./assets/fonts/DejaVu Sans Regular.woff2');
 }
+
 @font-face {
     font-family: JetBrainsMono;
-    src: url('./assets/fonts/JetBrains Mono Regular.ttf');
+    src: url('./assets/fonts/JetBrains Mono Regular.woff2');
 }
-@font-face {
-    font-family: Iosevka;
-    src: url('./assets/fonts/Iosevka Regular.ttf');
-}
-h1,h2,h3,h4,h5,h6 {
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin: 0;
 }
+
 .container {
     border-radius: 10px;
     width: 100%;
     max-width: 100%;
 }
+
 fieldset {
     margin-bottom: 1em !important;
     border: 1px solid #666 !important;
 }
 
 legend {
-    float:none;
-    width:auto;
+    float: none;
+    width: auto;
 }

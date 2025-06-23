@@ -1,40 +1,40 @@
-import SidebarToggleButton from '../../modules/sidebar-toggle-button/SidebarToggleButton.module';
+import SidebarToggleButton from '../../modules/sidebar-toggle-button/SidebarToggleButton.module'
 
-import './sidebar.component.scss';
-import { useContext } from 'react';
+import './sidebar.component.scss'
+import { useContext } from 'react'
 
-import AppContext from '../../context/App.context';
+import AppContext from '../../context/App.context'
 
-import Control from '../control/Control.component';
+import Control from '../control/Control.component'
 
-import { store } from '../../store/store';
+import { store } from '../../store/store'
 
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { useEffect } from 'react'
+import { useState } from 'react'
 
 // Root Component (Sidebar)
 const Sidebar = () => {
     const useStore = store((state) => state)
-    const [ theme, setTheme ] = useState('')
+    const [theme, setTheme] = useState('')
     const handleColorScheme = (e) => {
         localStorage.setItem('colorscheme', e.target.value)
         useStore.changeTheme(e.target.value)
     }
 
     useEffect(() => {
-		const colorScheme = localStorage.getItem('colorscheme')
+        const colorScheme = localStorage.getItem('colorscheme')
         setTheme(colorScheme)
-		if (colorScheme) {
-			useStore.changeTheme(colorScheme)
-		}
-	}, [])
+        if (colorScheme) {
+            useStore.changeTheme(colorScheme)
+        }
+    }, [])
 
     const { show } = useContext(AppContext)
 
     const sidebarList = [
         { id: 1, title: 'Markdown Converter', url: '' },
         { id: 2, title: 'SCSS Converter', url: '' },
-        { id: 3, title: 'Typescript Converter', url: '' }
+        { id: 3, title: 'Typescript Converter', url: '' },
     ]
 
     const ColorSchemes = [
@@ -45,25 +45,40 @@ const Sidebar = () => {
     ]
 
     return (
-        <aside className='sidebar__main bg-black text-white' style={{ left: show ? '5px' : '-300px' }}>
-            <header className='sidebar__header__title'>
+        <aside
+            className="sidebar__main bg-black text-white"
+            style={{ left: show ? '5px' : '-300px' }}
+        >
+            <header className="sidebar__header--title">
                 <h3>Converters</h3>
                 <SidebarToggleButton />
             </header>
-            <ul className='sidebar__list'>
+            <ul className="sidebar__list">
                 {sidebarList.map((item) => {
                     return (
-                        <li key={item.id} className='sidebar__list__item'>
-                            <a href='#'>{item.title}</a>
+                        <li key={item.id} className="sidebar__list--item">
+                            <a href="#">{item.title}</a>
                         </li>
                     )
                 })}
             </ul>
             <Control />
-            <select className='sidebar__list--colorscheme text-white' onChange={handleColorScheme} style={{width: '100%', marginTop: '0'}}>
+            <select
+                className="sidebar__list--colorscheme text-white"
+                onChange={handleColorScheme}
+                style={{ width: '100%', marginTop: '0' }}
+            >
                 {ColorSchemes.map((schemes) => {
                     return (
-                        <option selected={schemes.value === theme ? 'selected' : ''} variant='secondary' key={schemes.id} href='#' value={schemes.value}>{schemes.title}</option>
+                        <option
+                            selected={schemes.value === theme ? 'selected' : ''}
+                            variant="secondary"
+                            key={schemes.id}
+                            href="#"
+                            value={schemes.value}
+                        >
+                            {schemes.title}
+                        </option>
                     )
                 })}
             </select>
@@ -71,4 +86,4 @@ const Sidebar = () => {
     )
 }
 
-export default Sidebar;
+export default Sidebar

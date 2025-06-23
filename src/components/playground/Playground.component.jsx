@@ -1,7 +1,6 @@
-import './playground.component.scss';
-import Editor from '../editor/Editor.component';
-import Preview from '../preview/Preview.component';
-
+import './playground.component.scss'
+import Editor from '../editor/Editor.component'
+import Preview from '../preview/Preview.component'
 
 const Playground = () => {
     return (
@@ -11,4 +10,4 @@ const Playground = () => {
         </div>
     )
 }
-export default Playground;
+export default Playground
