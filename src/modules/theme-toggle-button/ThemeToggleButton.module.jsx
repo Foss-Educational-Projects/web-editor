@@ -15,17 +15,17 @@ const ThemeToggleButton = () => {
         console.log(systemThemeIsDark)
         if (darkMode === 'true') {
             setDark(true)
-            document.querySelector('html').setAttribute('data-bs-theme', 'dark')
+            document.querySelector('html').setAttribute('data-theme', 'dark')
         } else if (!systemThemeIsDark && darkMode == undefined) {
             document
                 .querySelector('html')
                 .setAttribute('data-bs-theme', 'light')
         } else if (systemThemeIsDark && darkMode == undefined) {
-            document.querySelector('html').setAttribute('data-bs-theme', 'dark')
+            document.querySelector('html').setAttribute('data-theme', 'dark')
         } else {
             document
                 .querySelector('html')
-                .setAttribute('data-bs-theme', 'light')
+                .setAttribute('data-theme', 'light')
         }
     }, [])
 
@@ -36,11 +36,11 @@ const ThemeToggleButton = () => {
             console.log('Light Mode Is True: ' + dark)
             document
                 .querySelector('html')
-                .setAttribute('data-bs-theme', 'light')
+                .setAttribute('data-theme', 'light')
             localStorage.setItem('darkmode', false)
         } else {
             console.log('Dark Mode Is True: ' + dark)
-            document.querySelector('html').setAttribute('data-bs-theme', 'dark')
+            document.querySelector('html').setAttribute('data-theme', 'dark')
             localStorage.setItem('darkmode', true)
         }
         setDark(!dark)
