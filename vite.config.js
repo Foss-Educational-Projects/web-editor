@@ -1,3 +1,4 @@
+import path from 'path'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import favicons from '@peterek/vite-plugin-favicons'
@@ -16,4 +17,9 @@ export default defineConfig({
             manifestMaskable: true,
         }),
     ],
+    resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
 })
