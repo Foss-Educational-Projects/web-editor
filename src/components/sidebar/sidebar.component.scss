@@ -13,7 +13,6 @@
     transform-origin: left;
     box-shadow: 2.5px 0 15px var(--bs-body-color);
     z-index: 10;
-    background-color: #11111183;
     backdrop-filter: blur(10px);
     overflow-y: scroll;
 }
@@ -43,22 +42,11 @@
     display: inline-block;
     padding: 10px;
     width: 100%;
-    background-color: rgba(21, 21, 22, 0.77);
     margin-bottom: 5px;
     border-radius: 50px 50px 10px;
     text-decoration: none;
     color: white;
     font-weight: bold;
-    transition:
-        background-color,
-        200ms ease-in-out;
-
-    &:hover {
-        background-color: rgba(47, 49, 54, 0.833);
-        transition:
-            background-color,
-            200ms ease-in-out;
-    }
 }
 
 .sidebar__list--colorscheme {

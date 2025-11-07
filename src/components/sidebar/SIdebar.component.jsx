@@ -48,7 +48,7 @@ const Sidebar = () => {
 
     return (
         <aside
-            className="sidebar__main text-white"
+            className="sidebar__main text-white dark:bg-zinc-800/50 bg-gray-200/50 backdrop-blur-sm"
             style={{ left: show ? '5px' : '-300px' }}
         >
             <header className="sidebar__header--title">
@@ -86,7 +86,7 @@ const Sidebar = () => {
             </select>
             <Menu>
                 <MenuButton>My account</MenuButton>
-                <MenuItems anchor="bottom">
+                <MenuItems anchor="bottom" className="z-10">
                     <MenuItem>
                         <a className="block data-focus:bg-blue-100" href="/settings">
                             Settings
