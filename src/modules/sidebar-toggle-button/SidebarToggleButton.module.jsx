@@ -20,7 +20,7 @@ const SidebarToggleButton = () => {
             onClick={() => {
                 setShow(!show)
             }}
-            variant="secondary"
+            variant="dark"
             className="align__icon sidebar__button"
             size="lg"
         >

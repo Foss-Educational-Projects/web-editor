@@ -1,16 +1,18 @@
 import SidebarToggleButton from '../../modules/sidebar-toggle-button/SidebarToggleButton.module'
 
-import './sidebar.component.scss'
-import { useContext } from 'react'
-
 import AppContext from '../../context/App.context'
 
 import Control from '../control/Control.component'
 
+// Store Import
 import { store } from '../../store/store'
 
-import { useEffect } from 'react'
-import { useState } from 'react'
+// React Imports
+import { useState, useEffect, useContext } from 'react'
+import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
+
+// Stylesheet Import
+import './sidebar.component.scss'
 
 // Root Component (Sidebar)
 const Sidebar = () => {
@@ -46,7 +48,7 @@ const Sidebar = () => {
 
     return (
         <aside
-            className="sidebar__main bg-black text-white"
+            className="sidebar__main text-white"
             style={{ left: show ? '5px' : '-300px' }}
         >
             <header className="sidebar__header--title">
@@ -82,6 +84,26 @@ const Sidebar = () => {
                     )
                 })}
             </select>
+            <Menu>
+                <MenuButton>My account</MenuButton>
+                <MenuItems anchor="bottom">
+                    <MenuItem>
+                        <a className="block data-focus:bg-blue-100" href="/settings">
+                            Settings
+                        </a>
+                    </MenuItem>
+                    <MenuItem>
+                        <a className="block data-focus:bg-blue-100" href="/support">
+                            Support
+                        </a>
+                    </MenuItem>
+                    <MenuItem>
+                        <a className="block data-focus:bg-blue-100" href="/license">
+                            License
+                        </a>
+                    </MenuItem>
+                </MenuItems>
+            </Menu>
         </aside>
     )
 }
